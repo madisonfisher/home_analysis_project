@@ -28,7 +28,7 @@ d3.json("../home_inventory_analysis/latlong_cities.json").then((data3) => {
 
       var US_mean = [];
       for (var i = 0; i < 204; i++) {
-        var mean = data1.City_Data[0][i];
+        var mean = data1.City_Data[j][i];
         US_mean.push(mean);
       }
 
@@ -52,7 +52,7 @@ d3.json("../home_inventory_analysis/latlong_cities.json").then((data3) => {
 
         var US_median = [];
         for (var i = 0; i < 204; i++) {
-          var mean = data2.City_Data[0][i];
+          var mean = data2.City_Data[j][i];
           US_median.push(mean);
         }
 
@@ -68,15 +68,22 @@ d3.json("../home_inventory_analysis/latlong_cities.json").then((data3) => {
         };
         var data = [trace1, trace2];
 
-        var layout1 = {
-          title: "Mean Days on the Market",
+        var layout = {
+          title: `Housing Data for ${data3.RegionName[j]}`,
           yaxis: { title: "Mean Days" },
-          xaxis: { title: "Days Since 2018" }
+          xaxis: { title: "Days Since 2018" },
+          height: 300,
+          width: 600,
+          legend: {
+            "orientation": "h",
+            x: 0,
+            y: -1
+          }
         };
         
-        var content = data3.RegionName[j] + `<div id=graph${j}></div>`;
-        L.marker(data3.LatLong[j]).bindPopup(content, {maxWidth: "auto"}).on('popupopen', function (info) {
-          Plotly.newPlot(`graph${j}`, data, layout1);
+        var content =`<div id=graph${j}></div>`;
+        L.marker(data3.LatLong[j]).bindPopup(content).on('popupopen', function (info) {
+          Plotly.newPlot(`graph${j}`, data, layout);
         }).addTo(myMap);
 
       })
