@@ -130,3 +130,6 @@ dmypy.json
 
 # Apple file explorer only file
 .DS_Store
+
+#other
+config.js
