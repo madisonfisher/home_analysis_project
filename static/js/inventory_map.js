@@ -134,7 +134,12 @@ d3.json("../home_inventory_analysis/latlong_cities.json").then((data5) => {
               "orientation": "h",
               x: 0,
               y: -1
-            }
+            },
+            margin: {
+              t: 60, 
+              l: 40, 
+              r: 20,
+              b: 20 }
           };
 
           var content = `<div id=graph${j}></div>`;
