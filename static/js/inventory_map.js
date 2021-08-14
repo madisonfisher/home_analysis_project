@@ -6,7 +6,7 @@ function initMap() {
   fetch("/apikey")
     .then((res) => res.text())
     .then((res) => {
-      MAPBOX_KEY = res;
+      API_KEY = res;
     })
     .then(createMap)
 }
