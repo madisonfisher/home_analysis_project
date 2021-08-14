@@ -12,9 +12,9 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   accessToken: API_KEY
 }).addTo(myMap);
 
-d3.json("Data/latlong_cities.json").then((data5) => {
+d3.json("../data/latlong_cities.json").then((data5) => {
   for (let j = 0; j < 96; j++) {
-    d3.json("Data/city_mean_pending_weekly_predicted_modified.json").then((data1) => {
+    d3.json("../data/city_mean_pending_weekly_predicted_modified.json").then((data1) => {
       var pred_mean_days = [];
       for (var i = 0; i < 204; i++) {
         var day = data1.Total_Days[i];
@@ -41,7 +41,7 @@ d3.json("Data/latlong_cities.json").then((data5) => {
         legendgroup: 'group1'
       };
 
-      d3.json("Data/city_median_pending_weekly_predicted_modified.json").then((data2) => {
+      d3.json("../data/city_median_pending_weekly_predicted_modified.json").then((data2) => {
         var pred_median_days = [];
         for (var i = 0; i < 204; i++) {
           var day = data2.Total_Days[i];
@@ -67,7 +67,7 @@ d3.json("Data/latlong_cities.json").then((data5) => {
           legendgroup: 'group2'
         };
 
-          d3.json("Data/city_mean_pending_weekly_smooth_base_modified.json").then((data3) => {
+          d3.json("../data/city_mean_pending_weekly_smooth_base_modified.json").then((data3) => {
           var mean_days = [];
           for (var i = 0; i < 182; i++) {
             var day = data3.Total_Days[i];
@@ -92,7 +92,7 @@ d3.json("Data/latlong_cities.json").then((data5) => {
             legendgroup: 'group1',
           };
 
-          d3.json("Data/city_median_pending_weekly_smooth_base_modified.json").then((data4) => {
+          d3.json("../data/city_median_pending_weekly_smooth_base_modified.json").then((data4) => {
             var median_days = [];
             for (var i = 0; i < 182; i++) {
               var day = data4.Total_Days[i];
