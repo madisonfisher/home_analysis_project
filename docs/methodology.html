@@ -50,18 +50,95 @@
   </nav>
 
 
-  <h1>Project Goal</h1> 
-    <p>
-    </br>
-    </p>
-  <h1>Our Process</h1> 
-    <p>
-    </br>
-    </p>
-  <h1>Conclusion</h1> 
-    <p>
-    </br>
-    </p>
+<div class="container">
+</br>
+  <div class="row">
+    <div class="col-md-9 col-sm-6">
+      <div class="card text-white mb-3" style="background-color: #4697FF;">
+        <div class="card-header"><h3>Machine Learning</h3></div>
+        <div class="card-body">
+          <p>
+            Machine Learning was used on this project to predict sets of time data as seen on the Housing Inventory 
+            map and the graphs for different types of house value index. Both of these analysis used the same general set up 
+            which involved setting up a dataframe using the previous data point and the difference between the current data point 
+            and the previous data point to create the machine learning data set. This data set was then used to train the model.
+            To then get the predicted data the last data point of the given data was used and the difference was calculated and plugged into 
+            the model. This was repeated with a loop to get the predicted data sets used in this project.  
+          </p>
+        </div>
+      </div>
+      
+        <div class="card text-white mb-3" style="background-color: #4697FF;">
+          <div class="card-header"><h3>Data Analysis</h3></div>
+          <div class="card-body">
+            <p>
+              The data used on this project came from <a href="https://www.zillow.com/research/data/" style="color: #003366">Zillow's Research Data</a> that is updated normally monthly.
+              Please note some data sets had missing data points or were not fully updated to current times. 
+            </p>
+            <h4>Rent Prices</h4>
+            <p>
+              Text
+            </p>
+            <h4>Housing Inventory</h4>
+            <p>
+              Mean and Median days houses were listed on the market was used for this data analysis. The files were transposed and formatted so that each city was
+              its own column. Then each city was individually analyzed by taking the housing data and adding a column which took looked back at the previous week. Then
+              a second column was added which took the difference between this new column and the week before. These process was then repeat to look 2 weeks back. After
+              the dataframe was setup this data was then used in a machine learning model and then the model was used to predict the mean and median for another 6 months.
+              This data was then graphed with the original data set on graphs that popup on a leaflet map after a city is selected. OpenCage Geocode 
+              was used to find the latitude and longitude of the cities based on the city name. Please note the US data is on a popup in the center of the US. 
+            </p>
+            <h4>Sales vs. List Price</h4>
+            <p>
+              The graph developed for Sales vs. List price was generated using a 6 month rolling mean. The actual data points were also graphed 
+              to show a comparison between the analyzed data and original data. The 6 month rolling mean is a good tool to use to smooth out 
+              data while still seeing trends. 
+            </p>
+            <h4>House Value Index for Types of Houses</h4>
+            <p>
+              Text
+            </p>
+            <h4>House Value Index for Cites</h4>
+            <p>
+              Text
+            </p>
+          </div>
+        </div>
+
+        <div class="card text-white mb-3" style="background-color: #4697FF;">
+          <div class="card-header"><h3>Deployment</h3></div>
+          <div class="card-body">
+            <p>
+              This project was deployed using Heroku and a Flask app was created to run all the html files on the deployed Heroku app. 
+            </p>
+          </div>
+        </div>
+    
+  </div>
+  <div class="col-md-3 col-sm-6">
+    <div class="card text-white mb-3" style="max-width: 20rem; background-color: #4697FF;">
+      <div class="card-header"><h3>Languages, Libraries, and Platforms</h3></div>
+      <div class="card-body">
+        <ul>
+          <li>Python</li>
+          <li>Pandas</li>
+          <li>Numpy</li>
+          <li>Sklearn</li>
+          <li>Open Cage Geocode</li>
+          <li>Flask</li>
+          <li>Heroku</li>
+          <li>html</li>
+          <li>css</li>
+          <li>javascript</li>
+          <li>Leaflet</li>
+          <li>Bootstrap</li>
+          <li>Tableau</li>
+        </ul>
+      </div>
+    </div>
+</div>
+</div>
+</div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
