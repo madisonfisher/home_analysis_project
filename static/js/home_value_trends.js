@@ -3,6 +3,7 @@
  * Last edited on 8/14/2021
  */
 
+// Creates the traces for all plotly line graphs
  function createTrace (homeValueRecord, yearKeys) {
     var homeValues = [];
     for(key in yearKeys) {
@@ -16,6 +17,7 @@
     }
 }
 
+// Create the line graph with the actual home value data
 d3.csv("../static/data/State_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv").then(function(data) {
     // Print the Data
     //console.log(data);
@@ -53,6 +55,7 @@ d3.csv("../static/data/State_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv").t
     Plotly.newPlot('state-plot', traces, layout)
 })
 
+// Create the line graph from the linear regression trained with data from 1996 - 2003
 d3.csv("../static/data/9604_State_Home_Values_LINEARpredicted.csv").then(function(data) {
     // Print the Data
     //console.log(data);
@@ -90,6 +93,7 @@ d3.csv("../static/data/9604_State_Home_Values_LINEARpredicted.csv").then(functio
     Plotly.newPlot('9604_linear', traces, layout)
 })
 
+// Create the line graph from the linear regression trained with data from 2010-2019
 d3.csv("../static/data/1019_State_Home_Values_LINEARpredicted.csv").then(function(data) {
     // Print the Data
     //console.log(data);
@@ -127,16 +131,21 @@ d3.csv("../static/data/1019_State_Home_Values_LINEARpredicted.csv").then(functio
     Plotly.newPlot('1019_linear', traces, layout)
 })
 
+// Create the table with all the final data points
 d3.csv("../static/data/All_June_2021_Values.csv").then(function(data) {
-    console.log(data);
+    // Print the data
+    //console.log(data);
 
-    var columns = ['Date','Actual','96-03 Growth','10-19 Growth']
+    // Column titles
+    var columns = ['Date','Actual','10-19 Growth','96-03 Growth']
 
+    // Initial table structure
     var table = d3.select('#table').append('table')
     table.classed('table table-bordered table-secondary table-striped table-sm', true)
     var thead = table.append('thead')
     var tbody = table.append('tbody')
 
+    // Fill table headers
     thead.append('tr')
     .selectAll('th')
         .data(columns)
@@ -144,6 +153,7 @@ d3.csv("../static/data/All_June_2021_Values.csv").then(function(data) {
     .append('th')
         .text(function (d) { return d })
 
+    // Fill the table data
     for (i = 0; i < data.length; i++) {
         var row = tbody.append('tr');
 
