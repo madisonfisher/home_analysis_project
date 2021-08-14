@@ -9,7 +9,7 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   maxZoom: 18,
   zoomOffset: -1,
   id: "mapbox/streets-v11",
-  accessToken: secrets.API_KEY
+  accessToken: API_KEY
 }).addTo(myMap);
 
 d3.json("Data/latlong_cities.json").then((data5) => {
