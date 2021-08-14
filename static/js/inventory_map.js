@@ -1,8 +1,6 @@
-let API_KEY = 'pk.eyJ1Ijoid2R5bGFuOTA3IiwiYSI6ImNrcTN1NTZscDBhOTUyb3FlOGF4MXR5OTMifQ.aQUCaSfWltYEmJ7rScfX8Q';
-//let API_KEY = 'pk.eyJ1Ijoid2R5bGFuOTA3IiwiYSI6ImNrcTN1NTZscDBhOTUyb3FlOGF4MXR5OTMifQ.aQUCaSfWltYEmJ7rScfX8Q';
+let API_KEY
 let myMap;
 initMap();
-//createMap();
 
 function initMap() {
   fetch("/apikey")
@@ -14,11 +12,6 @@ function initMap() {
 }
 
 function createMap() {
-  //console.log(data1);
-  //console.log(data2);
-  //console.log(data3);
-  //console.log(data4);
-  //console.log(data5);
   myMap = L.map("map", {
     center: [39.8283, -98.5795],
     zoom: 5
