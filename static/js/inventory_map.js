@@ -1,5 +1,6 @@
 let API_KEY
 let myMap;
+let markers = L.layerGroup().addTo(map);
 initMap();
 
 function initMap() {
@@ -151,9 +152,12 @@ function createMap() {
     };
   
     var content = `<div id=graph${j}></div>`;
-    L.marker(data5.LatLong[j]).bindPopup(content).on('popupopen', function (info) {
+    L.marker(data5.LatLong[j])
+      .addTo(markers)
+      .bindPopup(content)
+      .on('popupopen', function (info) {
       Plotly.newPlot(`graph${j}`, data, layout);
-    }).addTo(myMap);
+    });
   
   }
   
