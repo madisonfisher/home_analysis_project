@@ -1,13 +1,8 @@
-// Creating our initial map object
-// We set the longitude, latitude, and the starting zoom level
-// This gets inserted into the div with an id of 'map'
 var myMap = L.map("map", {
   center: [39.8283, -98.5795],
   zoom: 5
 });
 
-// Adding a tile layer (the background map image) to our map
-// We use the addTo method to add objects to our map
 L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
   attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
   tileSize: 512,
@@ -17,9 +12,9 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   accessToken: API_KEY
 }).addTo(myMap);
 
-d3.json("../home_inventory_analysis/latlong_cities.json").then((data5) => {
+d3.json("../data/latlong_cities.json").then((data5) => {
   for (let j = 0; j < 96; j++) {
-    d3.json("../home_inventory_analysis/predicted_inventory_files/city_mean_pending_weekly_predicted_modified.json").then((data1) => {
+    d3.json("../data/city_mean_pending_weekly_predicted_modified.json").then((data1) => {
       var pred_mean_days = [];
       for (var i = 0; i < 204; i++) {
         var day = data1.Total_Days[i];
@@ -46,7 +41,7 @@ d3.json("../home_inventory_analysis/latlong_cities.json").then((data5) => {
         legendgroup: 'group1'
       };
 
-      d3.json("../home_inventory_analysis/predicted_inventory_files/city_median_pending_weekly_predicted_modified.json").then((data2) => {
+      d3.json("../data/city_median_pending_weekly_predicted_modified.json").then((data2) => {
         var pred_median_days = [];
         for (var i = 0; i < 204; i++) {
           var day = data2.Total_Days[i];
@@ -72,7 +67,7 @@ d3.json("../home_inventory_analysis/latlong_cities.json").then((data5) => {
           legendgroup: 'group2'
         };
 
-          d3.json("../home_inventory_analysis/base_inventory_files/city_mean_pending_weekly_smooth_base_modified.json").then((data3) => {
+          d3.json("../data/city_mean_pending_weekly_smooth_base_modified.json").then((data3) => {
           var mean_days = [];
           for (var i = 0; i < 182; i++) {
             var day = data3.Total_Days[i];
@@ -94,10 +89,10 @@ d3.json("../home_inventory_analysis/latlong_cities.json").then((data5) => {
               color: 'rgb(0, 0, 139)'
             },
             name: "Mean",
-            legendgroup: 'group1'
+            legendgroup: 'group1',
           };
 
-          d3.json("../home_inventory_analysis/base_inventory_files/city_median_pending_weekly_smooth_base_modified.json").then((data4) => {
+          d3.json("../data/city_median_pending_weekly_smooth_base_modified.json").then((data4) => {
             var median_days = [];
             for (var i = 0; i < 182; i++) {
               var day = data4.Total_Days[i];
@@ -132,14 +127,15 @@ d3.json("../home_inventory_analysis/latlong_cities.json").then((data5) => {
             width: 600,
             legend: {
               "orientation": "h",
-              x: 0,
-              y: -1
+              x: 0.25,
+              y: -0.5,
             },
             margin: {
               t: 60, 
               l: 40, 
               r: 20,
-              b: 20 }
+              b: 20 },
+            hovermode: "closest"
           };
 
           var content = `<div id=graph${j}></div>`;
