@@ -1,6 +1,6 @@
 let API_KEY
 let myMap;
-let markers = L.layerGroup().addTo(map);
+let markers = L.layerGroup().addTo(myMap);
 initMap();
 
 function initMap() {
