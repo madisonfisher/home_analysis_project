@@ -16,7 +16,7 @@ function createTrace (homeValueRecord, yearKeys) {
     }
 }
 
-d3.csv("../data/State_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv").then(function(data) {
+d3.csv("../static/data/State_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv").then(function(data) {
     // Print the Data
     //console.log(data);
 
@@ -52,7 +52,7 @@ d3.csv("../data/State_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv").then(fun
     Plotly.newPlot('state-plot', traces, layout)
 })
 
-d3.csv("../data/9604_State_Home_Values_LINEARpredicted.csv").then(function(data) {
+d3.csv("../static/data/9604_State_Home_Values_LINEARpredicted.csv").then(function(data) {
     // Print the Data
     //console.log(data);
 
@@ -88,7 +88,7 @@ d3.csv("../data/9604_State_Home_Values_LINEARpredicted.csv").then(function(data)
     Plotly.newPlot('9604_linear', traces, layout)
 })
 
-d3.csv("../data/1019_State_Home_Values_LINEARpredicted.csv").then(function(data) {
+d3.csv("../static/data/1019_State_Home_Values_LINEARpredicted.csv").then(function(data) {
     // Print the Data
     //console.log(data);
 
@@ -124,7 +124,7 @@ d3.csv("../data/1019_State_Home_Values_LINEARpredicted.csv").then(function(data)
     Plotly.newPlot('1019_linear', traces, layout)
 })
 
-d3.csv("../data/All_June_2021_Values.csv").then(function(data) {
+d3.csv("../static/data/All_June_2021_Values.csv").then(function(data) {
     console.log(data);
 
     var columns = ['Date','Actual','96-03 Growth','10-19 Growth']
