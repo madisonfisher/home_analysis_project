@@ -7,6 +7,10 @@ app = Flask(__name__, template_folder="docs")
 def index():
     return render_template("index.html")
 
+@app.route("/<page_name>")
+def page(page_name):
+    return render_template(f'{page_name}.html')
+
 @app.route('/apikey')
 def key():
     return environ.get("API_KEY")
