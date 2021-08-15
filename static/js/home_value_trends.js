@@ -4,7 +4,7 @@
  */
 
 // Creates the traces for all plotly line graphs
- function createTrace (homeValueRecord, yearKeys) {
+function createTrace (homeValueRecord, yearKeys) {
     var homeValues = [];
     for(key in yearKeys) {
         homeValues.push(homeValueRecord[yearKeys[key]]);
@@ -18,7 +18,7 @@
 }
 
 // Create the line graph with the actual home value data
-d3.csv("../static/data/State_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv").then(function(data) {
+d3.csv("../data_analytics/home_value_files/State_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv").then(function(data) {
     // Print the Data
     //console.log(data);
 
@@ -38,9 +38,9 @@ d3.csv("../static/data/State_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv").t
     
     // Plot all traces and format with plotly
     var layout = {
-        title:'Home values for all States and DC since 1996',
+        title:'Average Home Values for all States and DC since 1996',
         hovermode: 'closest',
-        height: 525,
+        height: 530,
         xaxis: {
             title: {
                 text: 'Year',
@@ -56,7 +56,7 @@ d3.csv("../static/data/State_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv").t
 })
 
 // Create the line graph from the linear regression trained with data from 1996 - 2003
-d3.csv("../static/data/9604_State_Home_Values_LINEARpredicted.csv").then(function(data) {
+d3.csv("../data_analytics/home_value_files/9604_State_Home_Values_LINEARpredicted.csv").then(function(data) {
     // Print the Data
     //console.log(data);
 
@@ -76,9 +76,9 @@ d3.csv("../static/data/9604_State_Home_Values_LINEARpredicted.csv").then(functio
     
     // Plot all traces and format with plotly
     var layout = {
-        title:'1996 - 2003 Test',
+        title:'Predicted Average Home Value based on 1996-2004 data',
         hovermode: 'closest',
-        height: 525,
+        height: 530,
         xaxis: {
             title: {
                 text: 'Year',
@@ -94,7 +94,7 @@ d3.csv("../static/data/9604_State_Home_Values_LINEARpredicted.csv").then(functio
 })
 
 // Create the line graph from the linear regression trained with data from 2010-2019
-d3.csv("../static/data/1019_State_Home_Values_LINEARpredicted.csv").then(function(data) {
+d3.csv("../data_analytics/home_value_files/1119_State_Home_Values_LINEARpredicted.csv").then(function(data) {
     // Print the Data
     //console.log(data);
 
@@ -114,9 +114,9 @@ d3.csv("../static/data/1019_State_Home_Values_LINEARpredicted.csv").then(functio
     
     // Plot all traces and format with plotly
     var layout = {
-        title:'2010-2019 Test',
+        title:'Predicted Average Home Value based on 2011-2019 data',
         hovermode: 'closest',
-        height: 525,
+        height: 530,
         xaxis: {
             title: {
                 text: 'Year',
@@ -128,16 +128,16 @@ d3.csv("../static/data/1019_State_Home_Values_LINEARpredicted.csv").then(functio
             }
         }
     };
-    Plotly.newPlot('1019_linear', traces, layout)
+    Plotly.newPlot('1119_linear', traces, layout)
 })
 
 // Create the table with all the final data points
-d3.csv("../static/data/All_June_2021_Values.csv").then(function(data) {
+d3.csv("../data_analytics/home_value_files/All_June_2021_Values.csv").then(function(data) {
     // Print the data
     //console.log(data);
 
     // Column titles
-    var columns = ['Date','Actual','10-19 Growth','96-03 Growth']
+    var columns = ['State','Actual','11-19 Growth','96-04 Growth']
 
     // Initial table structure
     var table = d3.select('#table').append('table')
@@ -158,19 +158,19 @@ d3.csv("../static/data/All_June_2021_Values.csv").then(function(data) {
         var row = tbody.append('tr');
 
         for (key in data[i]) {
-            if (key == 'Actual')
+            if (key == 'State')
+                row.append('td')
+                    .text(data[i][key])
+            else if (key == 'Actual')
                 row.append('td')
                     .text(parseInt(data[i][key]).toLocaleString('en-US'));
-            else if (key == '96-03 Growth' || key == '10-19 Growth')
+            else if (key == '96-04 Growth' || key == '11-19 Growth')
                 if (isNaN(parseFloat(data[i][key])))
                     row.append('td')
                         .text("");
                 else
                     row.append('td')
                         .text(parseFloat(parseFloat(data[i][key]).toFixed(2)).toLocaleString('en-US'));
-            else
-                row.append('td')
-                    .text(data[i][key]);
         }
     }
 });
