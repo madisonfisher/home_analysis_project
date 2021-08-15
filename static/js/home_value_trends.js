@@ -18,7 +18,7 @@ function createTrace (homeValueRecord, yearKeys) {
 }
 
 // Create the line graph with the actual home value data
-d3.csv("../data_analysis/home_value_files/State_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv").then(function(data) {
+d3.csv("data_analysis/home_value_files/State_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv").then(function(data) {
     // Print the Data
     //console.log(data);
 
@@ -56,7 +56,7 @@ d3.csv("../data_analysis/home_value_files/State_zhvi_uc_sfrcondo_tier_0.33_0.67_
 })
 
 // Create the line graph from the linear regression trained with data from 1996 - 2003
-d3.csv("../data_analysis/home_value_files/9604_State_Home_Values_LINEARpredicted.csv").then(function(data) {
+d3.csv("../../data_analysis/home_value_files/9604_State_Home_Values_LINEARpredicted.csv").then(function(data) {
     // Print the Data
     //console.log(data);
 
@@ -94,7 +94,7 @@ d3.csv("../data_analysis/home_value_files/9604_State_Home_Values_LINEARpredicted
 })
 
 // Create the line graph from the linear regression trained with data from 2010-2019
-d3.csv("../data_analysis/home_value_files/1119_State_Home_Values_LINEARpredicted.csv").then(function(data) {
+d3.csv("../../data_analysis/home_value_files/1119_State_Home_Values_LINEARpredicted.csv").then(function(data) {
     // Print the Data
     //console.log(data);
 
@@ -132,7 +132,7 @@ d3.csv("../data_analysis/home_value_files/1119_State_Home_Values_LINEARpredicted
 })
 
 // Create the table with all the final data points
-d3.csv("../data_analysis/home_value_files/All_June_2021_Values.csv").then(function(data) {
+d3.csv("../../data_analysis/home_value_files/All_June_2021_Values.csv").then(function(data) {
     // Print the data
     //console.log(data);
 
