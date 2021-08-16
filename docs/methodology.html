@@ -102,9 +102,13 @@
               homes in the bottom 35%. The accuracy of the model was very good with scores > 0.99 achieved. 
 
             </p>
-            <h4>House Value Index for Cites</h4>
+            <h4>Home Value Trends for US States</h4>
             <p>
-              Text
+              Zillow's Home Value Index data set was used for this analysis. The data goes back to 1996 and is a monthly average of the value for homes in 
+              each US State and DC. In Python the data was split into segments pre and post market bubble that existed in the second half of the aughts.
+              2 linear regressions were trained; one with data from 1996-2004 and the other with data from 2011-2019. This was done with the goal to find out 
+              if the value of homes had continued growing at the rates from the above time periods would they be valued higher or lower than they are currently.
+              The table on the page contains the name of each state, their ZHVI on June 30 2021, and the two predicted values at the same time point.
             </p>
           </div>
         </div>

@@ -1,6 +1,6 @@
 /**
  * Graph trends of home value across the U.S
- * Last edited on 8/14/2021
+ * Last edited on 8/15/2021
  */
 
 // Creates the traces for all plotly line graphs
@@ -142,6 +142,8 @@ d3.csv("../static/data/All_June_2021_Values.csv").then(function(data) {
     // Initial table structure
     var table = d3.select('#table').append('table')
     table.classed('table table-bordered table-secondary table-striped table-sm', true)
+    table.append('caption')
+        .text('Actual and Predicted Home Values at June 30, 2021')
     var thead = table.append('thead')
     var tbody = table.append('tbody')
 
